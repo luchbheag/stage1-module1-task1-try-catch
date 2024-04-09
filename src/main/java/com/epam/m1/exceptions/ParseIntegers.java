@@ -3,6 +3,8 @@ package com.epam.m1.exceptions;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Complete the code, parse integers, calculate the sum of numbers in the WORDS, join strings with
@@ -16,20 +18,24 @@ public class ParseIntegers {
                             .split(" "));
 
     public static void main(String[] args) {
+        Logger logger = Logger.getLogger(ParseIntegers.class.getName());
         Iterator<String> words = WORDS.iterator();
         int sum = 0;
-        String justWords = "";
+        StringBuilder justWords = new StringBuilder();
         while (words.hasNext()) {
             String next = words.next();
             try {
                 int number = Integer.parseInt(next);
                 sum += number;
             } catch (NumberFormatException e) {
-                justWords += " " + next;
+                justWords.append(' ');
+                justWords.append(next);
             }
         }
-        System.out.println("Sum is " + sum);
-        System.out.println("Just words:" + justWords);
+        logger.log(Level.INFO, "Sum is " + sum);
+        logger.log(Level.INFO, "Just words:" + justWords);
+//        System.out.println("Sum is " + sum);
+//        System.out.println("Just words:" + justWords);
     }
 }
 
