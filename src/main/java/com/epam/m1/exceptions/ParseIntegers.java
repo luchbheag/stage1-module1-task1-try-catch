@@ -18,7 +18,6 @@ public class ParseIntegers {
                             .split(" "));
 
     public static void main(String[] args) {
-        Logger logger = Logger.getLogger(ParseIntegers.class.getName());
         Iterator<String> words = WORDS.iterator();
         int sum = 0;
         StringBuilder justWords = new StringBuilder();
@@ -32,10 +31,8 @@ public class ParseIntegers {
                 justWords.append(next);
             }
         }
-        logger.log(Level.INFO, "Sum is " + sum);
-        logger.log(Level.INFO, "Just words:" + justWords);
-//        System.out.println("Sum is " + sum);
-//        System.out.println("Just words:" + justWords);
+        System.out.println("Sum is " + sum);
+        System.out.println("Just words:" + justWords);
     }
 }
 
